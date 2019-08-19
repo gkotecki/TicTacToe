@@ -1,8 +1,13 @@
 <div class="game-grid">
   <div *ngFor="let cell of cells; let i = index" class="cell-card" (click)="cardClick(i)">
-    card {{ i + 1 }}
+    card {{ i }}
     <h1>
       {{ ticks[i] }}
     </h1>
   </div>
+
+  <ng-container *ngIf="winner == ''; else elseTemplate">
+    Playing...
+  </ng-container>
+  <ng-template #elseTemplate> Winner = {{ winner }} </ng-template>
 </div>
