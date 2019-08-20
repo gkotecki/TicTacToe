@@ -1,0 +1,8 @@
+<p>
+  heroes works!
+</p>
+
+<div *ngFor="let hero of heroList | async">
+  <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" alt="" />
+  <p>{{ hero.name }}</p>
+</div>
