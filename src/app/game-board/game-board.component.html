@@ -1,3 +1,7 @@
+<h2 style="text-align: center">
+  Player1 - {{ player1.getPoints() }} x {{ player2.getPoints() }} - Player2
+</h2>
+
 <div class="game-grid">
   <div *ngFor="let cell of cells; let i = index" class="cell-card" (click)="cardClick(i)">
     card {{ i }}
@@ -5,9 +9,13 @@
       {{ ticks[i] }}
     </h1>
   </div>
+</div>
 
+<div style="text-align: center">
   <ng-container *ngIf="winner == ''; else elseTemplate">
-    Playing...
+    <h3>Playing...</h3>
   </ng-container>
-  <ng-template #elseTemplate> Winner = {{ winner }} </ng-template>
+  <ng-template #elseTemplate>
+    <h3>Winner = {{ winner }}</h3>
+  </ng-template>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Hero } from "../../classes/hero";
+import { Player } from "../../classes/player";
 
 @Component({
   selector: "app-game-board",
@@ -6,11 +8,24 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./game-board.component.scss"]
 })
 export class GameBoardComponent implements OnInit {
-  conditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+  conditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
   cells: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   ticks: string[] = ["", "", "", "", "", "", "", "", ""];
   nextTick: string = "X";
   winner: string = "";
+
+  heroTest: Hero = new Hero();
+  player1: Player = new Player(this.heroTest);
+  player2: Player = new Player(this.heroTest);
 
   constructor() {}
 
