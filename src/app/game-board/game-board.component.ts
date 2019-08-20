@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Hero } from "../../classes/hero";
 import { Player } from "../../classes/player";
+import { BrowserStack } from "protractor/built/driverProviders";
 
 @Component({
   selector: "app-game-board",
@@ -24,8 +25,8 @@ export class GameBoardComponent implements OnInit {
   winner: string = "";
 
   heroTest: Hero = new Hero();
-  player1: Player = new Player(this.heroTest);
-  player2: Player = new Player(this.heroTest);
+  player1: Player = new Player(this.heroTest, "X");
+  player2: Player = new Player(this.heroTest, "O");
 
   constructor() {}
 
@@ -38,10 +39,13 @@ export class GameBoardComponent implements OnInit {
   cardClick(i: number) {
     // logic for user input
     if (this.ticks[i] == "" && this.winner == "") {
+      console.log(`ticks[${i}] = ${this.ticks[i]} && this.winner = ${this.winner}`);
+
       this.ticks[i] = this.nextTick;
       this.nextTick = this.nextTick == "X" ? "O" : "X";
+
+      this.checkForWinner();
     }
-    this.checkForWinner();
   }
 
   checkForWinner() {
@@ -53,6 +57,8 @@ export class GameBoardComponent implements OnInit {
         this.ticks[condition[1]] == this.ticks[condition[2]]
       ) {
         this.winner = this.nextTick == "X" ? "O" : "X";
+        if (this.player1.tickType == this.winner) this.player1.incrementPoints();
+        else this.player2.incrementPoints();
         return;
       }
 
@@ -66,5 +72,11 @@ export class GameBoardComponent implements OnInit {
     this.winner = "Draw";
   }
 
-  // end
+  replayGame() {
+    for (let i = 0; i < 9; i++) this.ticks[i] = "";
+    this.winner = "";
+    this.player1.tickType = this.player1.tickType == "X" ? "O" : "X";
+    this.player2.tickType = this.player2.tickType == "X" ? "O" : "X";
+    this.nextTick = "X";
+  }
 }

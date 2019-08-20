@@ -3,9 +3,11 @@ import { Hero } from "./hero";
 export class Player {
   private points: number = 0;
   private hero: Hero = null;
+  public tickType: string = "";
 
-  constructor(_hero: Hero) {
+  constructor(_hero: Hero, _tickType: string) {
     this.hero = _hero;
+    this.tickType = _tickType;
   }
 
   public incrementPoints() {

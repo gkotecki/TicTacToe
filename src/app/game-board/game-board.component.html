@@ -1,5 +1,6 @@
 <h2 style="text-align: center">
-  Player1 - {{ player1.getPoints() }} x {{ player2.getPoints() }} - Player2
+  Player1 -- ({{ player1.tickType }}) -- {{ player1.getPoints() }} x {{ player2.getPoints() }} --
+  ({{ player2.tickType }}) -- Player2
 </h2>
 
 <div class="game-grid">
@@ -17,5 +18,6 @@
   </ng-container>
   <ng-template #elseTemplate>
     <h3>Winner = {{ winner }}</h3>
+    <button (click)="replayGame()">Replay?</button>
   </ng-template>
 </div>
