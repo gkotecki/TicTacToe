@@ -1,12 +1,13 @@
+<app-heroes></app-heroes>
+
 <h2 style="text-align: center">
-  Player1 -- ({{ player1.tickType }}) -- {{ player1.getPoints() }} x {{ player2.getPoints() }} --
-  ({{ player2.tickType }}) -- Player2
+  {{ player1.hero.name }} -- ({{ player1.tickType }}) -- {{ player1.getPoints() }} x
+  {{ player2.getPoints() }} -- ({{ player2.tickType }}) -- {{ player2.hero.name }}
 </h2>
 
 <div class="game-grid">
   <div *ngFor="let cell of cells; let i = index" class="cell-card" (click)="cardClick(i)">
-    card {{ i }}
-    <h1>
+    <h1 class="tick">
       {{ ticks[i] }}
     </h1>
   </div>
@@ -21,5 +22,3 @@
     <button (click)="replayGame()">Replay?</button>
   </ng-template>
 </div>
-
-<app-heroes></app-heroes>

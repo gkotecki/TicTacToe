@@ -8,6 +8,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { HeroComponent } from "./heroes/hero/hero.component";
 import { HeroesComponent } from "./heroes/heroes.component";
 import { HttpClientModule } from "@angular/common/http";
+import { SearchBoxComponent } from './heroes/search-box/search-box.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from "@angular/common/http";
     GameBoardComponent,
     FooterComponent,
     HeroComponent,
-    HeroesComponent
+    HeroesComponent,
+    SearchBoxComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

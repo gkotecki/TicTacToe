@@ -10,18 +10,16 @@ export class HeroService {
   //https://gateway.marvel.com/v1/public/characters?nameStartsWith=spi&limit=30&ts=1&apikey=89221094fd1961b61c00bf02088b49c0&hash=eb81393664c17bfe88d1986651cbc0a2
   APIKEY = "89221094fd1961b61c00bf02088b49c0";
   HASH = "eb81393664c17bfe88d1986651cbc0a2";
+  URL_START = "https://gateway.marvel.com:443/v1/public/characters?";
+  URL_END = `ts=1&apikey=${this.APIKEY}&hash=${this.HASH}`;
 
   searchTerm: string = "spi";
 
-  arguments = `nameStartsWith=${this.searchTerm}&limit=30&`;
-
-  heroesUrl = `https://gateway.marvel.com:443/v1/public/characters?${this.arguments}ts=1&apikey=${
-    this.APIKEY
-  }&hash=${this.HASH}`;
-
   constructor(private http: HttpClient) {}
 
-  getHeroes(): Observable<any> {
-    return this.http.get<any>(this.heroesUrl).pipe(map((data: any) => data.data.results));
+  getHeroes(search: string, limit: number): Observable<any> {
+    let args = `nameStartsWith=${search}&limit=${limit}&`;
+    let heroesUrl = this.URL_START + args + this.URL_END;
+    return this.http.get<any>(heroesUrl).pipe(map((data: any) => data.data.results));
   }
 }

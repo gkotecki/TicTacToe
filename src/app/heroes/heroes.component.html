@@ -1,8 +1,16 @@
-<p>
-  heroes works!
-</p>
-
-<div *ngFor="let hero of heroList | async">
-  <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" alt="" />
-  <p>{{ hero.name }}</p>
+<h3 class="center">Choose your characters!</h3>
+<div class="heroes-container">
+  <div class="column">
+    nome:
+    <app-search-box></app-search-box>
+  </div>
+  <div class="column">
+    nome:
+    <app-search-box></app-search-box>
+  </div>
 </div>
+
+<!-- <div *ngFor="let hero of heroList | async">
+  <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" alt="{{ hero.name }}" />
+  <p>{{ hero.name }}</p>
+</div> -->

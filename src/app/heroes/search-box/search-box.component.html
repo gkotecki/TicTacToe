@@ -1,0 +1,9 @@
+<div class="search-box">
+  <input #box (keyup.enter)="onSearch(box.value)" />
+  <div *ngFor="let hero of heroList | async">
+    <div class="result-card" (click)="setHero(hero)">
+      <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" alt="{{ hero.name }}" />
+      <p>{{ hero.name }}</p>
+    </div>
+  </div>
+</div>
