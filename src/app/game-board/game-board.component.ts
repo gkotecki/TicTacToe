@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Hero } from "../../classes/hero";
 import { Player } from "../../classes/player";
 import { BrowserStack } from "protractor/built/driverProviders";
+import { HeroService } from "../heroes/hero/services/hero.service";
 
 @Component({
   selector: "app-game-board",
@@ -25,10 +26,10 @@ export class GameBoardComponent implements OnInit {
   winner: string = "";
 
   heroTest: Hero = new Hero();
-  player1: Player = new Player(this.heroTest, "X");
-  player2: Player = new Player(this.heroTest, "O");
+  player1: Player = new Player(this.heroSvc.player1Hero, "X");
+  player2: Player = new Player(this.heroSvc.player2Hero, "O");
 
-  constructor() {}
+  constructor(private heroSvc: HeroService) {}
 
   ngOnInit() {
     // clear board on initialize
@@ -45,6 +46,8 @@ export class GameBoardComponent implements OnInit {
       this.nextTick = this.nextTick == "X" ? "O" : "X";
 
       this.checkForWinner();
+
+      //console.log("hero1 name = " + this.heroSvc.player1Hero.name);
     }
   }
 

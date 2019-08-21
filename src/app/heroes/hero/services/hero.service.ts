@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { Hero } from "src/classes/hero";
 
 @Injectable({
   providedIn: "root"
@@ -22,4 +23,7 @@ export class HeroService {
     let heroesUrl = this.URL_START + args + this.URL_END;
     return this.http.get<any>(heroesUrl).pipe(map((data: any) => data.data.results));
   }
+
+  player1Hero: Hero = new Hero();
+  player2Hero: Hero = new Hero();
 }

@@ -1,8 +1,8 @@
 <app-heroes></app-heroes>
 
 <h2 style="text-align: center">
-  {{ player1.hero.name }} -- ({{ player1.tickType }}) -- {{ player1.getPoints() }} x
-  {{ player2.getPoints() }} -- ({{ player2.tickType }}) -- {{ player2.hero.name }}
+  {{ heroSvc.player1Hero.name }} -- ({{ player1.tickType }}) -- {{ player1.getPoints() }} x
+  {{ player2.getPoints() }} -- ({{ player2.tickType }}) -- {{ heroSvc.player2Hero.name }}
 </h2>
 
 <div class="game-grid">
