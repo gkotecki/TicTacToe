@@ -1,7 +1,24 @@
 .search-box {
-  height: 15em;
   background-color: #121212;
-  overflow: scroll;
+  // overflow-y: scroll;
+  border-radius: 10px;
+}
+
+.result-box {
+  overflow-y: scroll;
+  max-height: 25vh;
+}
+
+.search-field {
+  width: 96%;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.26);
+  color: white;
+  font-size: 18px;
+  margin: 4px;
+  padding: 4px;
+  border-width: 0px;
+  border-radius: 8px;
 }
 
 .result-card {
@@ -28,4 +45,20 @@
     margin-right: 4px;
     border-radius: 4px;
   }
+}
+
+#style-2::-webkit-scrollbar-track {
+  margin: 6px;
+  border-radius: 3px;
+  background-color: #ffffff44;
+}
+
+#style-2::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+#style-2::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #e65050;
 }

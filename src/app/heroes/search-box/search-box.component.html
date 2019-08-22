@@ -1,9 +1,11 @@
 <div class="search-box">
-  <input #box (keyup.enter)="onSearch(box.value)" />
-  <div *ngFor="let hero of heroList | async">
-    <div class="result-card" (click)="setHero(playerIndex, hero)">
-      <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" alt="{{ hero.name }}" />
-      <p>{{ hero.name }}</p>
+  <input #box (keyup.enter)="onSearch(box.value)" placeholder="Search..." class="search-field" />
+  <div class="result-box" id="style-2">
+    <div *ngFor="let hero of heroList | async">
+      <div class="result-card" (click)="setHero(playerIndex, hero)">
+        <img src="{{ hero.thumbnail.path }}.jpg" alt="{{ hero.name }}" />
+        <p>{{ hero.name }}</p>
+      </div>
     </div>
   </div>
 </div>
