@@ -1,6 +1,5 @@
 .search-box {
   background-color: #121212;
-  // overflow-y: scroll;
   border-radius: 10px;
 }
 
@@ -31,34 +30,37 @@
   transition: all 200ms;
   height: 46px;
 
-  display: grid;
-  grid-template-columns: 1fr 5fr;
+  display: flex;
 
   &:hover {
-    //transform: scale(1.1);
-    box-shadow: 0px 0px 6px #ff000088;
+    box-shadow: 0px 0px 2px #ff000088 inset;
+  }
+
+  p {
+    font-size: 0.9em;
   }
 
   img {
     height: 40px;
     width: 30px;
-    margin-right: 4px;
+    margin-right: 0.5em;
     border-radius: 4px;
+    object-fit: cover;
   }
 }
 
-#style-2::-webkit-scrollbar-track {
-  margin: 6px;
-  border-radius: 3px;
-  background-color: #ffffff44;
-}
-
-#style-2::-webkit-scrollbar {
-  width: 6px;
-  background-color: transparent;
-}
-
-#style-2::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-  background-color: #e65050;
+#scroll {
+  &::-webkit-scrollbar-track {
+    margin: 6px;
+    border-radius: 3px;
+    background-color: #ffffff44;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #e65050;
+  }
 }
