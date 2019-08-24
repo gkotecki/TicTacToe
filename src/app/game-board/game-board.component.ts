@@ -3,6 +3,7 @@ import { Hero } from "../../classes/hero";
 import { Player } from "../../classes/player";
 import { BrowserStack } from "protractor/built/driverProviders";
 import { HeroService } from "../heroes/hero/services/hero.service";
+import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic/src/platform_providers';
 
 @Component({
   selector: "app-game-board",
