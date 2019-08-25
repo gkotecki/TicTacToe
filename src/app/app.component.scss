@@ -9,9 +9,22 @@ app-main-header {
 }
 
 app-game-board {
+  margin: auto auto;
   flex: 1 0 auto;
 }
 
 app-footer {
   flex-shrink: 0;
+}
+
+@media screen and (min-width: 766px) {
+  app-game-board {
+    max-width: 80%;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  app-game-board {
+    max-width: 60%;
+  }
 }

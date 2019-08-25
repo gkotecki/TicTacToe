@@ -1,4 +1,4 @@
-$cell-size: 120px;
+$cell-size: 110px;
 
 .game-grid {
   margin: 1em;
@@ -96,5 +96,19 @@ $cell-size: 120px;
   &:hover {
     cursor: pointer;
     box-shadow: 0 1px 4px #0000003a, 0 1px 12px #0000003a;
+  }
+}
+
+@media screen and (min-width: 766px) {
+  $cell-size: 150px;
+
+  .scoreboard {
+    min-height: 200px;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .scoreboard {
+    min-height: 250px;
   }
 }

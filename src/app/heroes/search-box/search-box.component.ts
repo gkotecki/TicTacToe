@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { HeroService } from "../hero/services/hero.service";
+import { HeroService } from "../services/hero.service";
 import { Observable } from "rxjs";
 import { Hero } from "src/classes/hero";
-import { GameBoardComponent } from "src/app/game-board/game-board.component";
 
 @Component({
   selector: "app-search-box",
@@ -16,20 +15,20 @@ export class SearchBoxComponent implements OnInit {
 
   constructor(private heroSvc: HeroService) {}
 
-  ngOnInit() {
-    //this.onSearch("iron");
-  }
+  ngOnInit() {}
 
   onSearch(value: string) {
     console.log("submitting " + value);
-    this.heroList = this.heroSvc.getHeroes(value, 10);
+    this.heroList = this.heroSvc.getHeroes(value, 15);
   }
 
   setHero(_playerNum: number, _hero: Hero) {
-    if (_playerNum == 1) this.heroSvc.player1Hero = _hero;
-    else if (_playerNum == 2) this.heroSvc.player2Hero = _hero;
-    else console.log("playerNum can only be 1 or 2");
-
-    //console.log("setado hero1 = " + this.heroSvc.player1Hero.name);
+    if (_playerNum == 1) {
+      this.heroSvc.player1Hero = _hero;
+      this.heroList = null;
+    } else if (_playerNum == 2) {
+      this.heroSvc.player2Hero = _hero;
+      this.heroList = null;
+    } else console.log("playerNum can only be 1 or 2");
   }
 }
