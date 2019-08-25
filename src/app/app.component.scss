@@ -1,0 +1,17 @@
+.my-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+app-main-header {
+  flex-shrink: 0;
+}
+
+app-game-board {
+  flex: 1 0 auto;
+}
+
+app-footer {
+  flex-shrink: 0;
+}

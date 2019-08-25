@@ -17,7 +17,7 @@ export class SearchBoxComponent implements OnInit {
   constructor(private heroSvc: HeroService) {}
 
   ngOnInit() {
-    this.onSearch("iron");
+    //this.onSearch("iron");
   }
 
   onSearch(value: string) {

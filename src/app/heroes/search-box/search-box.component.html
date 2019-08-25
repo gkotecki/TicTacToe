@@ -1,5 +1,8 @@
 <div class="search-box">
-  <input #box (keyup.enter)="onSearch(box.value)" placeholder="Search..." class="search-field" />
+  <div class="btn-group">
+    <input #box (keyup.enter)="onSearch(box.value)" placeholder="Search..." class="search-field" />
+    <i class="material-icons">search</i>
+  </div>
   <div class="result-box" id="scroll">
     <div *ngFor="let hero of heroList | async">
       <div class="result-card" (click)="setHero(playerIndex, hero)">

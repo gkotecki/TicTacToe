@@ -29,7 +29,7 @@
     <h3>Playing...</h3>
   </ng-container>
   <ng-template #elseTemplate>
-    <h3>Winner = {{ winner }}</h3>
-    <button (click)="replayGame()">Replay?</button>
+    <h3>Winner: {{ winner }}</h3>
+    <button class="replay" (click)="replayGame()">Replay?</button>
   </ng-template>
 </div>

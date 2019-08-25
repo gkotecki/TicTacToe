@@ -3,7 +3,7 @@ import { Hero } from "../../classes/hero";
 import { Player } from "../../classes/player";
 import { BrowserStack } from "protractor/built/driverProviders";
 import { HeroService } from "../heroes/hero/services/hero.service";
-import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from '@angular/platform-browser-dynamic/src/platform_providers';
+import { INTERNAL_BROWSER_DYNAMIC_PLATFORM_PROVIDERS } from "@angular/platform-browser-dynamic/src/platform_providers";
 
 @Component({
   selector: "app-game-board",
@@ -47,8 +47,6 @@ export class GameBoardComponent implements OnInit {
       this.nextTick = this.nextTick == "X" ? "O" : "X";
 
       this.checkForWinner();
-
-      //console.log("hero1 name = " + this.heroSvc.player1Hero.name);
     }
   }
 
