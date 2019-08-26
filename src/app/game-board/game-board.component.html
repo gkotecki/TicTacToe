@@ -27,7 +27,7 @@
 
   <div style="text-align: center">
     <ng-container *ngIf="winner == ''; else elseTemplate">
-      <h3>Playing...</h3>
+      <h3>Now playing: {{ nextTick }}</h3>
     </ng-container>
     <ng-template #elseTemplate>
       <h3>Winner: {{ winner }}</h3>

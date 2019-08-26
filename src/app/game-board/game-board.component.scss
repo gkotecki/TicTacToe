@@ -104,6 +104,11 @@ $cell-size: 110px;
 
   .scoreboard {
     min-height: 200px;
+    width: 100%;
+
+    .tickType {
+      font-size: 2.5em;
+    }
   }
 }
 
