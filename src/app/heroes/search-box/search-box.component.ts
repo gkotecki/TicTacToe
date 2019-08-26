@@ -12,14 +12,17 @@ export class SearchBoxComponent implements OnInit {
   @Input() playerIndex: number;
 
   heroList: Observable<any>;
+  loadingSpinner: boolean = false;
 
   constructor(private heroSvc: HeroService) {}
 
   ngOnInit() {}
 
   onSearch(value: string) {
+    this.loadingSpinner = true;
     console.log("submitting " + value);
     this.heroList = this.heroSvc.getHeroes(value, 15);
+    this.heroList.subscribe(heroes => (this.loadingSpinner = false));
   }
 
   setHero(_playerNum: number, _hero: Hero) {

@@ -1,35 +1,37 @@
 <app-heroes></app-heroes>
 
-<div class="scoreboard">
-  <div [ngStyle]="{ backgroundImage: 'url(' + heroSvc.player1Hero.thumbnail.path + '.jpg)' }">
-    <p>{{ heroSvc.player1Hero.name }}</p>
-    <p class="tickType">{{ player1.tickType }}</p>
+<div class="hide" *ngIf="heroSvc.player1Hero.name != ''">
+  <div class="scoreboard">
+    <div [ngStyle]="{ backgroundImage: 'url(' + heroSvc.player1Hero.thumbnail.path + '.jpg)' }">
+      <p>{{ heroSvc.player1Hero.name }}</p>
+      <p class="tickType">{{ player1.tickType }}</p>
+    </div>
+    <div class="score">
+      <p>{{ player1.getPoints() }}</p>
+      <p>vs</p>
+      <p>{{ player2.getPoints() }}</p>
+    </div>
+    <div [ngStyle]="{ backgroundImage: 'url(' + heroSvc.player2Hero.thumbnail.path + '.jpg)' }">
+      <p>{{ heroSvc.player2Hero.name }}</p>
+      <p class="tickType">{{ player2.tickType }}</p>
+    </div>
   </div>
-  <div class="score">
-    <p>{{ player1.getPoints() }}</p>
-    <p>vs</p>
-    <p>{{ player2.getPoints() }}</p>
-  </div>
-  <div [ngStyle]="{ backgroundImage: 'url(' + heroSvc.player2Hero.thumbnail.path + '.jpg)' }">
-    <p>{{ heroSvc.player2Hero.name }}</p>
-    <p class="tickType">{{ player2.tickType }}</p>
-  </div>
-</div>
 
-<div class="game-grid">
-  <div *ngFor="let cell of cells; let i = index" class="cell-card" (click)="cardClick(i)">
-    <h1 class="tick">
-      {{ ticks[i] }}
-    </h1>
+  <div class="game-grid">
+    <div *ngFor="let cell of cells; let i = index" class="cell-card" (click)="cardClick(i)">
+      <h1 class="tick">
+        {{ ticks[i] }}
+      </h1>
+    </div>
   </div>
-</div>
 
-<div style="text-align: center">
-  <ng-container *ngIf="winner == ''; else elseTemplate">
-    <h3>Playing...</h3>
-  </ng-container>
-  <ng-template #elseTemplate>
-    <h3>Winner: {{ winner }}</h3>
-    <button class="replay" (click)="replayGame()">Replay?</button>
-  </ng-template>
+  <div style="text-align: center">
+    <ng-container *ngIf="winner == ''; else elseTemplate">
+      <h3>Playing...</h3>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <h3>Winner: {{ winner }}</h3>
+      <button class="replay" (click)="replayGame()">Replay?</button>
+    </ng-template>
+  </div>
 </div>

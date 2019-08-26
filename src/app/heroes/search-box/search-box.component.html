@@ -4,6 +4,7 @@
     <i (click)="onSearch(box.value)" class="material-icons">search</i>
   </div>
   <div class="result-box" id="scroll">
+    <h3 *ngIf="loadingSpinner" class="loading">LOADING...</h3>
     <div *ngFor="let hero of heroList | async">
       <div class="result-card" (click)="setHero(playerIndex, hero)">
         <img src="{{ hero.thumbnail.path }}.jpg" alt="{{ hero.name }}" />
