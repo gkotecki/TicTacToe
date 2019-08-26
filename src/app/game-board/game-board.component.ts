@@ -30,7 +30,7 @@ export class GameBoardComponent implements OnInit {
   player1: Player = new Player(this.heroSvc.player1Hero, "X");
   player2: Player = new Player(this.heroSvc.player2Hero, "O");
 
-  constructor(private heroSvc: HeroService) {}
+  constructor(public heroSvc: HeroService) {}
 
   ngOnInit() {
     // clear board on initialize
